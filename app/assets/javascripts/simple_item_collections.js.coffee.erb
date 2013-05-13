@@ -1,0 +1,35 @@
+<% environment.context_class.instance_eval { include Rails.application.routes.url_helpers } %>
+
+class SimpleItemCollection
+
+    constructor: ->
+
+    load_callback: (data) ->
+        @simple_item_collection = []
+        @simple_item_collection.push(new SimpleItem(item.title, item.body)) for item in data.simple_items
+        @draw()
+
+    draw: ->
+        $('ul.simple_item_list').html(@simple_item_collection_html())
+
+    simple_item_collection_html: ->
+        html = ""
+        html += simple_item.draw() for simple_item in @simple_item_collection
+        html
+
+class SimpleItem
+
+    constructor: (title, body) ->
+        @title = title
+        @body = body
+
+    draw: ->
+        "<li><strong>#{@title}</strong>: #{@body}</li>"
+
+
+
+window.start_simple_item_polling = ->
+    simple_item_collection = new SimpleItemCollection()
+    resource_loader = new ResourceLoader('<%= poll_simple_item_collections_path %>', simple_item_collection)
+    simple_poller = new SimplePoller(resource_loader, 2000)
+    simple_poller.start()

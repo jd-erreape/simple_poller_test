@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyText
+  body: 
+  simple_item_collection: 
+
+two:
+  title: MyText
+  body: 
+  simple_item_collection: 

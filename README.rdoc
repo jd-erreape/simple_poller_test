@@ -1,0 +1,1 @@
+Simple Rails app for the simple_poller gem
