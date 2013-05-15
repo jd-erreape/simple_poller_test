@@ -30,6 +30,5 @@ class SimpleItem
 
 window.start_simple_item_polling = ->
     simple_item_collection = new SimpleItemCollection()
-    resource_loader = new ResourceLoader('<%= poll_simple_item_collections_path %>', simple_item_collection)
-    simple_poller = new SimplePoller(resource_loader, 2000)
+    simple_poller = new SimplePoller(new ResourceLoader('<%= poll_simple_item_collections_path %>', simple_item_collection), 2000)
     simple_poller.start()

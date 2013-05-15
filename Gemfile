@@ -22,7 +22,7 @@ end
 
 gem 'jquery-rails'
 
-gem 'simple_poller'
+gem 'simple_poller', :git => 'git@github.com:jd-erreape/simple_poller.git'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
